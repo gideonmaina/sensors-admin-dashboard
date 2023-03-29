@@ -9,6 +9,7 @@ const router = useRouter()
 let nodes = ref(null);
 let items = ref([]);
 const loading = ref(true)
+const searchValue = ref("");
 const sensors = [
   {
     "node_id": "esp8266-104",
@@ -54,7 +55,7 @@ const sensors = [
     "node_sensors": [37, 85, 47]
 
   },
-  
+
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
@@ -140,7 +141,7 @@ const sensors = [
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46,92]
+    "node_sensors": [37, 56, 46, 92]
 
   },
 
@@ -200,7 +201,7 @@ const headers = [
   { text: "Node ID", value: "node_id" },
   { text: "Location", value: "node_location" },
   { text: "City", value: "node_city" },
-  { text: "Country", value: "node_country" },
+  { text: "Country", value: "node_country", sortable:true },
   { text: "Sensors", value: "node_sensors" }
 
 ];
@@ -211,15 +212,21 @@ const headers = [
 // };
 
 const viewNode = node_id => router.push(`/node/${node_id}`)
-
+const viewSensor = sensor_id => router.push(`/sensor/${sensor_id}`)
+const randomHsl = () => `hsla(${Math.floor(Math.random() * 360)}, 100%, 40%, 1)`
 
 </script>
 
 <template>
   <div>
     <h1>View active nodes in last 5 minutes : {{ items.length }}</h1>
+    <div class="searchbox">
+      <span>Search node: </span>
+      <input type="text" placeholder="e.g. esp8266-12345" v-model="searchValue">
+    </div>
+
     <EasyDataTable :headers="headers" :items="items" buttons-pagination alternating border-cell theme-color="#00e5a0"
-      table-class-name="custom-table" :loading="loading">
+      table-class-name="custom-table" :loading="loading" :search-value="searchValue">
       <template #loading>
         <Loaders />
       </template>
@@ -229,7 +236,8 @@ const viewNode = node_id => router.push(`/node/${node_id}`)
       </template>
 
       <template #item-node_sensors="{ node_sensors }">
-        <span v-for="sensor in node_sensors" :v-key="node" class="sensor-tag">{{ sensor }}</span>
+        <span v-for="sensor in node_sensors" :v-key="node" class="sensor-tag" :style="{ backgroundColor: randomHsl() }"
+          @click="viewSensor(sensor)">{{ sensor }}</span>
       </template>
 
     </EasyDataTable>
@@ -247,8 +255,8 @@ const viewNode = node_id => router.push(`/node/${node_id}`)
   --easy-table-header-font-color: #fff;
   --easy-table-header-font-size: 18px;
   font-weight: 500;
-  
- 
+
+
 }
 
 .node-id {
@@ -264,5 +272,14 @@ const viewNode = node_id => router.push(`/node/${node_id}`)
   color: white;
   margin-right: 4px;
   cursor: pointer;
+}
+
+.searchbox{
+  margin: 10px;
+}
+.searchbox input{
+  padding: 4px;
+  margin-left: 16px;
+  outline: none;
 }
 </style>
