@@ -1,0 +1,57 @@
+[
+    {
+        "date": "30/03/2023",
+        "color": "cyan",
+        "report":"Use a mifi to create hotspot",
+        "attention":["Gideon","Kirah","Mwendwa"],
+        "resolved":true
+        
+
+      },
+    {
+        "date": "02/12/2022",
+        "color": "green",
+        "report":" Power cable also disconneted",
+        "attention":["Mark","Jane"],
+        "resolved":false
+        
+
+      },
+    {
+        "date": "9/06/2022",
+        "color": "pink",
+        "report":"No wifi hotspot available",
+        "attention":["Usman","Kirah","Agustine"],
+        "resolved":false
+        
+
+      },
+    {
+        "date": "10/2/2022",
+        "color": "amber",
+        "report":" Reloaded bundles",
+        "attention":["Gideon","John"],
+        "resolved":true
+        
+
+      },
+    {
+        "date": "04/07/2021",
+        "color": "cyan",
+        "report":"Only required reboot",
+        "attention":["Emma","Too"],
+        "resolved":true
+        
+
+      },
+    {
+        "date": "30/03/2023",
+        "color": "orange",
+        "report":" Custodian was not available",
+        "attention":["Peter","Sean","Christie"],
+        "resolved":false
+        
+
+      }
+     
+]
