@@ -2,7 +2,7 @@
     {
         "date": "30/03/2023",
         "color": "cyan",
-        "report":"Use a mifi to create hotspot",
+        "report":"Used a mifi to create hotspot",
         "attention":["Gideon","Kirah","Mwendwa"],
         "resolved":true
         

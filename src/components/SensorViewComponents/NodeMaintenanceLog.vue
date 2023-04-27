@@ -1,6 +1,10 @@
 <script setup>
 import logs from "../../simulationdata/maintenancelog.json"
 
+import Avatar from "../avators/BaseAvator.vue"
+
+
+
 const logStatus=bool=>bool?"Resolved ✅":"Unresolved 🚨"
 </script>
 
@@ -26,7 +30,11 @@ const logStatus=bool=>bool?"Resolved ✅":"Unresolved 🚨"
                 <div class="personnel">
                   <p>Maintained By:</p>
                   <span v-for="staff in log.attention" :key="staff">
-                    {{staff }} ,
+                    <Avatar :name="staff">
+                    <template v-slot:named-avatar >
+                   
+                    </template>
+                    </Avatar>
                   </span>
                 </div>
             </div>

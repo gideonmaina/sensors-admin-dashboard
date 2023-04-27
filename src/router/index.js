@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ActiveNodes from '../views/ActiveNodes.vue'
+import InactiveNodes from '../views/InactiveNodes.vue'
 import NodeView from '../views/NodeView.vue'
 
 const router = createRouter({
@@ -22,6 +23,11 @@ const router = createRouter({
       path:'/active-nodes',
       name:'activeNodes',
       component:ActiveNodes
+    },
+    {
+      path:'/inactive-nodes',
+      name:'inactiveNodes',
+      component:InactiveNodes
     },
     {
       path:'/node/:node_id',
