@@ -1,0 +1,46 @@
+[
+    {
+      "node_id": "esp8266-104",
+      "node_type":"AQ sensor",
+      "last_active":"12/02/2023",
+      "node_location": "TUK",
+      "node_city": "Nairobi",
+      "node_country": "Kenya",
+      "node_sensors": [139, 28, 14],
+      "assigned":false
+      
+    },
+    {
+      "node_id": "esp8266-104",
+      "node_type":"AQ sensor",
+      "last_active":"12/02/2023",
+      "node_location": "TUK",
+      "node_city": "Nairobi",
+      "node_country": "Kenya",
+      "node_sensors": [139, 28, 14],
+      "assigned":false
+      
+    },
+    {
+      "node_id": "esp8266-104",
+      "node_type":"AQ sensor",
+      "last_active":"12/02/2023",
+      "node_location": "TUK",
+      "node_city": "Nairobi",
+      "node_country": "Kenya",
+      "node_sensors": [139, 28, 14],
+      "assigned":false
+      
+    },
+    {
+      "node_id": "esp8266-104",
+      "node_type":"AQ sensor",
+      "last_active":"12/02/2023",
+      "node_location": "TUK",
+      "node_city": "Nairobi",
+      "node_country": "Kenya",
+      "node_sensors": [139, 28, 14],
+      "assigned":false
+      
+    }
+]
