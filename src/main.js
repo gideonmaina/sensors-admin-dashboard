@@ -4,7 +4,7 @@ import router from './router'
 import Vue3EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
 import './assets/main.css'
-
+import './index.css' //tailwind css
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'

@@ -2,13 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ActiveNodes from '../views/ActiveNodes.vue'
 import NodeView from '../views/NodeView.vue'
-
+import accountRoutes from './account.routes';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      redirect: '/active-nodes'
+      redirect: '/account'
     },
     {
       path: '/about',
@@ -27,8 +27,8 @@ const router = createRouter({
       path:'/node/:node_id',
       name:'node',
       component:NodeView
-    }
-    
+    },
+    { ...accountRoutes }
   ]
 })
 
