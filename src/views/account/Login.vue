@@ -12,13 +12,14 @@ const loginSchema = yup.object({
 
 // Initial values
 const formValues = {
-  email: '',
-  password: '',
+  email: 'example@mail.com',
+  password: '12345678',
 };
 const {handleSubmit} =useForm({
   initialValues: formValues,
 })
 
+let login_error=null;
 
 const onSubmit= async (values)=>{
     //     return new Promise(resolve => {
@@ -30,7 +31,9 @@ const onSubmit= async (values)=>{
 
     const authStore = useAuthStore();
     const { email, password } = values;
-    await authStore.login(email, password)
+    const response=await authStore.login(email, password)
+    console.log(`auth response: ${response}`)
+    if(!response)login_error=true
 }
 // const onSubmit = handleSubmit(values => {
 //      return new Promise(resolve => {
@@ -48,12 +51,12 @@ const onSubmit= async (values)=>{
 <Form @submit="onSubmit" :validation-schema="loginSchema" v-slot="{ errors,isSubmitting }" class="self-center">
     <div class="flex flex-col mb-4">
         <label>Email</label>
-        <Field name="email" type="email" placeholder="name@codeforafrica.org" class="mt-2 px-2 py-1 "/>
+        <Field name="email" type="email" placeholder="name@codeforafrica.org" class="mt-2 px-2 py-1 " :value="formValues.email"/>
         <span class="text-rose-600 mt-2">{{ errors.email }}</span>
     </div>
     <div class="flex flex-col mb-4">
         <label>Password</label>
-        <Field name="password" type="password" placeholder="**************" class="mt-2 px-2 py-1"/>
+        <Field name="password" type="password" placeholder="**************" class="mt-2 px-2 py-1" :value="formValues.password"/>
         <span class="text-rose-600 mt-2">{{ errors.password }}</span>
     </div>
    
@@ -62,7 +65,7 @@ const onSubmit= async (values)=>{
             <span class="spinner mr-2" v-show="isSubmitting&&JSON.stringify(errors)==='{}'"> </span>
             <span class="text-base font-semibold">Login</span>
         </button>
-     <span>{{JSON.stringify(errors)==='{}'?'No Errors':errors }}</span>
+     <span v-if="login_error" class="text-rose-600">Invalid credentials!</span>
 </Form>
  <p>Contact your admin for account creation</p>
 </div>

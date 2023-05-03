@@ -29,7 +29,8 @@ const router = createRouter({
       name:'node',
       component:NodeView
     },
-    { ...accountRoutes }
+    { ...accountRoutes },
+    // { path: '/:pathMatch(.*)*', redirect: '/' } //redirect to rootpage if path does not match any
   ]
 })
 
@@ -40,6 +41,10 @@ router.beforeEach(async (to) => {
   const publicPages = ['/account/login'];
   const authRequired = !publicPages.includes(to.path);
   const authStore = useAuthStore();
+  console.log(`Path: ${to.fullPath}`)
+  console.log(`auth required: ${authRequired}`)
+  console.log(`user: ${authStore.user}`)
+
 
   if (authRequired && !authStore.user) {
       authStore.returnURL= to.fullPath;
