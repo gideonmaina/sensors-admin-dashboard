@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore} from '@/stores';
 import HomeView from '../views/HomeView.vue'
 import ActiveNodes from '../views/ActiveNodes.vue'
 import InactiveNodes from '../views/InactiveNodes.vue'
 import NodeView from '../views/NodeView.vue'
-
+import accountRoutes from './account.routes';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,9 +34,28 @@ const router = createRouter({
       path:'/node/:node_id',
       name:'node',
       component:NodeView
-    }
-    
+    },
+    { ...accountRoutes },
+    // { path: '/:pathMatch(.*)*', redirect: '/' } //redirect to rootpage if path does not match any
   ]
 })
+
+
+
+router.beforeEach(async (to) => {
+ 
+  const publicPages = ['/account/login'];
+  const authRequired = !publicPages.includes(to.path);
+  const authStore = useAuthStore();
+  console.log(`Path: ${to.fullPath}`)
+  console.log(`auth required: ${authRequired}`)
+  console.log(`user: ${authStore.user}`)
+
+
+  if (authRequired && !authStore.user) {
+      authStore.returnURL= to.fullPath;
+      return '/account/login';
+  }
+});
 
 export default router

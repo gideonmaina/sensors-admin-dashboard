@@ -1,0 +1,41 @@
+node 
+    -id
+    -type
+
+last active datetime
+location 
+    -Country
+    -City
+    -specific location name
+
+custodian
+    -name
+    -contact
+
+assign
+    -default: unassigned
+    -name of sensor admin to be notified
+
+
+
+_-----------------------LOGIC-------------
+
+1: what time difference to be considered= 3hrs
+
+ SQL :NOW(UTC) - timeDifference
+
+
+For every sensor : get sensordatavalue from 1 limit 1
+                 - get datetime on sensordata on modified/column 
+
+
+
+
+-------ACTIVE NODES-----
+
+For every sensor check
+  SQL :NOW(UTC) - timeDifference 
+
+
+
+get all sensors  and compare with active sensors: return sensors not active
