@@ -12,8 +12,8 @@ const loginSchema = yup.object({
 
 // Initial values
 const formValues = {
-  email: 'example@mail.com',
-  password: '12345678',
+  email: 'gmainapro@gmail.com',
+  password: '123456789',
 };
 const {handleSubmit} =useForm({
   initialValues: formValues,

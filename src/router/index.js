@@ -10,7 +10,9 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/active-nodes'
+      component:HomeView
+      // path: '/',
+      // redirect: '/active-nodes'
     },
     {
       path: '/about',
@@ -49,13 +51,16 @@ router.beforeEach(async (to) => {
   const authStore = useAuthStore();
   console.log(`Path: ${to.fullPath}`)
   console.log(`auth required: ${authRequired}`)
-  console.log(`user: ${authStore.user}`)
+  authStore.user?console.log(`user: ${authStore.user}`):console.log(false)
+  
 
 
   if (authRequired && !authStore.user) {
+      console.log("Login Required")
       authStore.returnURL= to.fullPath;
       return '/account/login';
   }
+  
 });
 
 export default router
