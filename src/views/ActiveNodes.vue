@@ -64,7 +64,7 @@ const randomHsl = () => `hsla(${Math.floor(Math.random() * 360)}, 100%, 40%, 1)`
 </script>
 
 <template>
-  <div>
+  <div >
     <h1>View active nodes in last 5 minutes : {{ items.length }}</h1>
     <div class="searchbox">
       <span>Search node: </span>
