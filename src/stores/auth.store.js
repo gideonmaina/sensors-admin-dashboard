@@ -5,7 +5,6 @@ let auth_status=false
 export const useAuthStore = defineStore("users", {
   state: () => ({
     user: JSON.parse(localStorage.getItem("user")),
-    // user: "gmainapro@gmail.com",
     returnURL:null,
   }),
   actions: {
@@ -17,17 +16,20 @@ export const useAuthStore = defineStore("users", {
         // }
 
         const response=await axios.get(`${import.meta.env.VITE_API_URL}/users`)
+
         response.data.users.forEach(obj => {
           if(obj.email===email&&obj.password===password) {
-            console.log("user found")
+            console.log('\nAuthentication Log')
             this.user=obj.name;
             auth_status=true
-            return;
+            console.log(this.user)
+            localStorage.setItem("user", JSON.stringify(obj.name));
+            return auth_status;
           }
         });
        
 
-        // localStorage.setItem("user", JSON.stringify(user));
+        
 
        // redirect to previous url or default to home page
        if(!auth_status) return auth_status
