@@ -28,5 +28,4 @@ coverage
 *.sw?
 
 #config files
-*.config.js
 .env
