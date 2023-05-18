@@ -30,7 +30,7 @@ const randomHsl = () =>
 
 <template>
     <div>
-      <h1>View active nodes in last checked at 1340HRS UTC : {{ items.length }}</h1>
+      <h1>inactive nodes checked at 1340HRS UTC : {{ items.length }}</h1>
       <div class="searchbox">
         <span>Search node: </span>
         <input type="text" placeholder="e.g. esp8266-12345" v-model="searchValue">
