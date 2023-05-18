@@ -8,7 +8,7 @@ const logStatus = (bool) => (bool ? "Resolved ✅" : "Unresolved 🚨");
 
 <template>
   <div class="px-4">
-    <v-timeline align="center" side="end">
+    <v-timeline align="center" >
       <v-timeline-item v-for="(log, i) in logs" :key="i" :dot-color="log.color" size="small">
         <template v-slot:opposite>
           <div :class="`pt-1 headline font-weight-bold underline underline-offset-4 text-${log.color}`" v-text="log.date">

@@ -51,12 +51,12 @@ const onSubmit= async (values)=>{
 <Form @submit="onSubmit" :validation-schema="loginSchema" v-slot="{ errors,isSubmitting }" class="self-center">
     <div class="flex flex-col mb-4">
         <label>Email</label>
-        <Field name="email" type="email" placeholder="name@codeforafrica.org" class="mt-2 px-2 py-1 " :value="formValues.email"/>
+        <Field name="email" type="email" placeholder="name@codeforafrica.org" class="mt-2 px-2 py-1 border" :value="formValues.email"/>
         <span class="text-rose-600 mt-2">{{ errors.email }}</span>
     </div>
     <div class="flex flex-col mb-4">
         <label>Password</label>
-        <Field name="password" type="password" placeholder="**************" class="mt-2 px-2 py-1" :value="formValues.password"/>
+        <Field name="password" type="password" placeholder="**************" class="mt-2 px-2 py-1 border" :value="formValues.password"/>
         <span class="text-rose-600 mt-2">{{ errors.password }}</span>
     </div>
    

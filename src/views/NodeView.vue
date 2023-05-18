@@ -27,7 +27,9 @@ const tab = ref(null)
           <MaintenanceLog />
         </v-window-item>
 
-        <v-window-item value="edit"> <EditNode/> </v-window-item>
+        <v-window-item value="edit">
+          <EditNode />
+        </v-window-item>
       </v-window>
 
     </div>
