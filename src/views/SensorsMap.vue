@@ -6,6 +6,15 @@
 <script setup>
 import { onMounted } from "vue";
 // import Marker from '@/components/map-markers/PrimaryMarker.vue'
+
+import {useNodesStore} from '@/stores/sensors.store.js'
+const nodes=useNodesStore();
+
+if(nodes.inactiveNodes.length==0){
+  console.log("Inactive Nodes empty")
+  nodes.getInactiveNodes()
+}
+
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 const region = {
