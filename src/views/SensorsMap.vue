@@ -7,13 +7,8 @@
 import { onMounted } from "vue";
 // import Marker from '@/components/map-markers/PrimaryMarker.vue'
 
-import {useNodesStore} from '@/stores/sensors.store.js'
-const nodes=useNodesStore();
-
-if(nodes.inactiveNodes.length==0){
-  console.log("Inactive Nodes empty")
-  nodes.getInactiveNodes()
-}
+import { useNodesStore } from "@/stores/sensors.store.js";
+const nodes = useNodesStore();
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -31,13 +26,27 @@ const setMap = () => {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
+  mark_nodes(L, nodes.inactive_nodes_map, map);
+  //  L.marker([-1.308009, 36.858899], { icon: activeMarkerIcon }).addTo(map);
+};
+
+const mark_nodes = async (Leaflet, nodey, map) => {
+ if((nodey.length==0)||(nodey==undefined) ){
+  console.log("Inactive Nodes empty")
+  await nodes.getInactiveNodes()
+ }
+  
+
   const activeMarkerIcon = L.divIcon({
     className: "radial-map-marker",
     html: "<span class='radial-map-marker'><span class='inner'></span></span>",
     iconSize: [48, 48],
   });
 
-  L.marker([-1.308009, 36.858899], { icon: activeMarkerIcon }).addTo(map);
+  nodey.forEach((node) => {
+    const coords = node[1].split(",").map(Number);
+    Leaflet.marker(coords, { icon: activeMarkerIcon }).addTo(map);
+  });
 };
 
 onMounted(() => {
