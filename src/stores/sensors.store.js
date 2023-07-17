@@ -10,7 +10,7 @@ export const useNodesStore = defineStore("Nodes", {
 getters:{
     inactive_nodes_map(state){
         let map_data=JSON.parse(JSON.stringify(state.inactiveNodes))
-        map_data=map_data.map(arr=>{return [arr[0],arr[8]] })
+        map_data=map_data.map(arr=>{return [arr[0],arr[5],arr[8]] })
         return map_data
     }
 },

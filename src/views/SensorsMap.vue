@@ -38,14 +38,16 @@ const mark_nodes = async (Leaflet, nodey, map) => {
   
 
   const activeMarkerIcon = L.divIcon({
-    className: "radial-map-marker",
+    className: "mapMarkerIco1",
     html: "<span class='radial-map-marker'><span class='inner'></span></span>",
     iconSize: [48, 48],
+    iconAnchor: [24,24]
+    
   });
 
   nodey.forEach((node) => {
-    const coords = node[1].split(",").map(Number);
-    Leaflet.marker(coords, { icon: activeMarkerIcon }).addTo(map);
+    const coords = node[2].split(",").map(Number);
+    Leaflet.marker(coords,{icon: activeMarkerIcon}).addTo(map).bindPopup(`<p>${node[0]}</p><p>${node[1]}</p>`);
   });
 };
 
