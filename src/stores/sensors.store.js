@@ -21,30 +21,31 @@ getters:{
     inactive_all(state){
       let inactive_nodes=JSON.parse(JSON.stringify(state.inactiveNodes))
       let nodes=[]
-      let node_struct={
-        "node_id":null,
-        "type":null,
-        "last_active":null,
-        "location":"",
-        "city":"",
-        "country":"",
-        "sensors":[]
-        
-      }
+    
       inactive_nodes.forEach(arr=>{
-      node_struct.nodeid=arr[0]
-      node_struct.type=arr[3]
+        let node_struct={
+          "node_id":null,
+          "node_type":null,
+          "last_active":null,
+          "node_location":"",
+          "node_city":"",
+          "node_country":"",
+          "node_sensors":[]
+          
+        }  
+      node_struct.node_id=arr[0]
+      node_struct.node_type=arr[3]
       node_struct.last_active=arr[2][0]
-      node_struct.location=arr[5]
-      node_struct.city=arr[6]
-      node_struct.country=arr[7]
-      node_struct.sensors=arr[8]
+      node_struct.node_location=arr[5]
+      node_struct.node_city=arr[6]
+      node_struct.node_country=arr[7]
+      node_struct.node_sensors=arr[1]
 
       nodes.push(node_struct)
        
       })
 
-
+      console.log(nodes)
       return nodes
       
       
