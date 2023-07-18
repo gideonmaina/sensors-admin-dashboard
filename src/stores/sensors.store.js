@@ -3,8 +3,11 @@ import axios from "axios";
 
 export const useNodesStore = defineStore("Nodes", {
   state: () => {
+    let inactiveNodes=[]
+    if (localStorage.getItem("inactiveNodes"))
+      inactiveNodes=JSON.parse(localStorage.getItem("inactiveNodes"));
     return {
-      inactiveNodes:[]
+      inactiveNodes
     };
   },
 getters:{
@@ -60,8 +63,11 @@ getters:{
             },
           }
         );
-    
-        this.inactiveNodes = JSON.parse(JSON.stringify(response.data));
+        
+        this.inactiveNodes = response.data;
+        localStorage.setItem("inactiveNodes", JSON.stringify(response.data));
+        console.log("done getting inactive nodes")
+
       } catch (error) {
         console.log(error.message);
       }
