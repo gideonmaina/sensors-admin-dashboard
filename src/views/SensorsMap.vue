@@ -12,12 +12,21 @@ const nodes = useNodesStore();
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-const region = {
+var region = {
   name: "Nairobi",
   lat: -1.3024146,
   long: 36.7770724,
 };
 const mapContainer = "sensorsMapNetwork";
+
+const setRegion = (geoposition) => {
+  region.name = "";
+  region.lat = geoposition.coords.latitude;
+  region.long = geoposition.coords.longitude;
+
+  setMap();
+};
+
 const setMap = () => {
   var map = L.map(mapContainer).setView([region.lat, region.long], 8);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -31,28 +40,32 @@ const setMap = () => {
 };
 
 const mark_nodes = async (Leaflet, nodey, map) => {
- if((nodey.length==0)||(nodey==undefined) ){
-  console.log("Inactive Nodes empty")
-  await nodes.getInactiveNodes()
- }
-  
+  if (nodey.length == 0 || nodey == undefined) {
+    console.log("Inactive Nodes empty");
+    await nodes.getInactiveNodes();
+  }
 
   const activeMarkerIcon = L.divIcon({
     className: "mapMarkerIco1",
     html: "<span class='radial-map-marker'><span class='inner'></span></span>",
     iconSize: [48, 48],
-    iconAnchor: [24,24]
-    
+    iconAnchor: [24, 24],
   });
 
   nodey.forEach((node) => {
     const coords = node[2].split(",").map(Number);
-    Leaflet.marker(coords,{icon: activeMarkerIcon}).addTo(map).bindPopup(`<p>${node[0]}</p><p>${node[1]}</p>`);
+    Leaflet.marker(coords, { icon: activeMarkerIcon })
+      .addTo(map)
+      .bindPopup(`<p>${node[0]}</p><p>${node[1]}</p>`);
   });
 };
 
 onMounted(() => {
-  setMap();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(setRegion, () => {}, {
+      timeout: 10000,
+    });
+  }
 });
 </script>
 
