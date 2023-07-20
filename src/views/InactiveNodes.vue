@@ -1,17 +1,23 @@
 <script setup>
 import { ref } from "vue";
-import inactiveSensors from "../simulationdata/inactivenodes.json";
+// import inactiveSensors from "../simulationdata/inactivenodes.json";
 import { useRouter } from "vue-router";
 import Loaders from "../components/Loaders.vue";
+import { useNodesStore } from "@/stores/sensors.store.js";
+const nodes = useNodesStore();
 
 const router = useRouter();
 const loading = ref(true);
 let items = ref([]);
 const searchValue = ref("");
 setTimeout(() => {
-  items.value = inactiveSensors;
+  // items.value = inactiveSensors;
+  items.value = nodes.inactive_all;
   loading.value = false;
 }, 1000);
+
+
+
 const headers = [
   { text: "Node ID", value: "node_id" },
   { text: "Type", value: "node_location" },
@@ -30,7 +36,7 @@ const randomHsl = () =>
 
 <template>
     <div>
-      <h1>View active nodes in last checked at 1340HRS UTC : {{ items.length }}</h1>
+      <h1>inactive nodes checked at 1340HRS UTC : {{ items.length }}</h1>
       <div class="searchbox">
         <span>Search node: </span>
         <input type="text" placeholder="e.g. esp8266-12345" v-model="searchValue">

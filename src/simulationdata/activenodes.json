@@ -4,7 +4,11 @@
     "node_location": "TUK",
     "node_city": "Nairobi",
     "node_country": "Kenya",
-    "node_sensors": [139, 28, 14]
+    "node_sensors": [139, 28, 14],
+    "geo":{
+      "lat":-1.30300000000,
+      "long":36.78900000000
+      }
     
   },
 
@@ -13,7 +17,11 @@
     "node_location": "CARSS-NARSDA",
     "node_city": "Abuja",
     "node_country": "Nigeria",
-    "node_sensors": [154, 64, 85]
+    "node_sensors": [154, 64, 85],
+    "geo":{
+      "lat":0.31008100000,
+      "long":3.36660400000
+      } 
   },
 
   {
@@ -21,7 +29,11 @@
     "node_location": "Lake-Hub",
     "node_city": "Kisumu",
     "node_country": "Kenya",
-    "node_sensors": [141, 33, 45]
+    "node_sensors": [141, 33, 45],
+    "geo":{
+      "lat":6.50050100000,
+      "long":3.36660400000
+      }
   },
 
   {
@@ -29,7 +41,11 @@
     "node_location": "August 7th Memorial",
     "node_city": "Nairobi",
     "node_country": "Kenya",
-    "node_sensors": [48, 156, 349]
+    "node_sensors": [48, 156, 349],
+    "geo":{
+      "lat":0.34552200000,
+      "long":32.70095400000
+      }
   },
 
   {
@@ -37,7 +53,11 @@
     "node_location": "Danfoe",
     "node_city": "Abuja",
     "node_country": "Nigeria",
-    "node_sensors": [37, 85, 47]
+    "node_sensors": [37, 85, 47],
+    "geo":{
+      "lat":0.36015800000,
+      "long":332.61085500000
+      }
   },
 
   {
@@ -45,77 +65,121 @@
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":0.65704100000,
+      "long":30.26806800000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":1.08397200000,
+      "long":34.23360100000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":0.23439800000,
+      "long":32.55299800000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":0.34122300000,
+      "long":32.60208500000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":-1.41300000000,
+      "long":36.95300000000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":-1.42100000000,
+      "long":36.95300000000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":-1.27000000000,
+      "long":36.80100000000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":-1.26100000000,
+      "long":36.78200000000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":-1.42100000000,
+      "long":36.95300000000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46]
+    "node_sensors": [37, 56, 46],
+    "geo":{
+      "lat":0.33226700000,
+      "long":32.56985500000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 56, 46, 92]
+    "node_sensors": [37, 56, 46, 92],
+    "geo":{
+      "lat":0.29250700000,
+      "long":32.50853700000
+      }
   },
 
   {
@@ -123,13 +187,21 @@
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [56, 46]
+    "node_sensors": [56, 46],
+    "geo":{
+      "lat":0.65704100000,
+      "long":30.26806800000
+      }
   },
   {
     "node_id": "esp8266-345",
     "node_location": "Jinja",
     "node_city": "Jinja",
     "node_country": "Uganda",
-    "node_sensors": [37, 46]
+    "node_sensors": [37, 46],
+    "geo":{
+      "lat":-0.26541200000,
+      "long":30.10699700000
+      }
   }
 ]
