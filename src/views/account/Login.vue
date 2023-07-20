@@ -34,7 +34,8 @@ const onSubmit = async (form_values) => {
         <Form @submit="onSubmit" :validation-schema="loginSchema" v-slot="{ errors, isSubmitting }" class="self-center">
             <div class="flex flex-col mb-4">
                 <label>Username</label>
-                <Field name="username" type="text" placeholder="cfa-staff" class="mt-2 px-2 py-1 border" />
+                <Field name="username" type="text" placeholder="cfa-staff" auto-completeclass="mt-2 px-2 py-1 border" />
+                <span class="text-rose-600 mt-2">{{ errors.username }}</span>
             </div>
             <div class="flex flex-col mb-4">
                 <label>Password</label>
