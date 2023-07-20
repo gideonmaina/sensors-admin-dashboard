@@ -6,13 +6,14 @@ import { useAuthStore } from '@/stores'
 
 
 const loginSchema = yup.object({
-  email: yup.string().required().email().label('Email address'),
+//   email: yup.string().required().email().label('Email address'),
+  username:yup.string().required(),
   password: yup.string().required().min(8),
 });
 
 // Initial values
 const formValues = {
-  email: 'gmainapro@gmail.com',
+  username: 'gideon',
   password: '123456789',
 };
 const {handleSubmit} =useForm({
@@ -28,10 +29,10 @@ const onSubmit= async (values)=>{
     //       resolve(console.log(values));
     //     }, 3000);
     //   })
-
+    console.log(values)
     const authStore = useAuthStore();
-    const { email, password } = values;
-    const response=await authStore.login(email, password)
+    const { username, password } = values;
+    const response=await authStore.login(username, password)
     console.log(`auth response: ${response}`)
     if(!response)login_error=true
 }
@@ -50,9 +51,9 @@ const onSubmit= async (values)=>{
     <div class="bg-white px-8 py-10 w-96 rounded shadow-md">
 <Form @submit="onSubmit" :validation-schema="loginSchema" v-slot="{ errors,isSubmitting }" class="self-center">
     <div class="flex flex-col mb-4">
-        <label>Email</label>
-        <Field name="email" type="email" placeholder="name@codeforafrica.org" class="mt-2 px-2 py-1 border" :value="formValues.email"/>
-        <span class="text-rose-600 mt-2">{{ errors.email }}</span>
+        <label>Username</label>
+        <Field name="username" type="text" placeholder="cfa-staff" class="mt-2 px-2 py-1 border" :value="formValues.username"/>
+       
     </div>
     <div class="flex flex-col mb-4">
         <label>Password</label>

@@ -63,8 +63,8 @@ router.beforeEach(async (to) => {
   const authRequired = !publicPages.includes(to.path);
   const authStore = useAuthStore();
   console.log(`Path: ${to.fullPath}`);
-  console.log(`auth required: ${authRequired}`);
-  authStore.user ? console.log(`user: ${authStore.user}`) : console.log(false);
+  console.log(`Page access requires authorization?: ${authRequired}`);
+  authStore.user ? console.log(`user: ${authStore.user}`) : console.log(`${authStore.user}: `+"No user in store");
 
   if (authRequired && !authStore.user) {
     console.log("Login Required");
