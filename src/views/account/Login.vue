@@ -5,7 +5,7 @@ import { useAuthStore } from "@/stores";
 
 const loginSchema = yup.object({
     //   email: yup.string().required().email().label('Email address'),
-    username: yup.string().required(),
+    username: yup.string().required().trim(),
     password: yup.string().required().min(8),
 });
 
