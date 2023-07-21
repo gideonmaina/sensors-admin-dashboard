@@ -24,8 +24,9 @@ const onSubmit = async (form_values) => {
 
     const authStore = useAuthStore();
     const response = await authStore.login(form_values);
-    console.log(`auth response: ${response}`);
-    if (!response) login_error = true;
+    console.log(response);
+    if (response.error) login_error = response.error;
+
 };
 </script>
 
@@ -49,7 +50,7 @@ const onSubmit = async (form_values) => {
                 </span>
                 <span class="text-base font-semibold">Login</span>
             </button>
-            <span v-if="login_error" class="text-rose-600">Invalid credentials!</span>
+            <span v-if="login_error" class="text-rose-600">{{login_error}}</span>
         </Form>
         <p>Contact your admin for account creation</p>
     </div>
