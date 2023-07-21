@@ -1,43 +1,57 @@
 import { defineStore } from "pinia";
-import axios from "axios"
+import axios from "axios";
 import router from "@/router";
-let auth_status=false
+
+let FetchResponse = {
+  error: "",
+};
+
 export const useAuthStore = defineStore("users", {
   state: () => ({
-    user: JSON.parse(localStorage.getItem("user")),
-    returnURL:null,
+    // user: JSON.parse(localStorage.getItem("user")),
+    user: null,
+    token: null,
+    returnURL: null,
+    auth_status: false,
   }),
   actions: {
-    async login(email, password) {
+    async login(form_data) {
       try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_SENSORS_API}/login/`,
+          form_data
+        );
 
-        // if(email!='gmainapro@gmail.com'&&password!='123456789'){
-        //   return false
-        // }
+        console.log(response.status);
 
-        const response=await axios.get(`${import.meta.env.VITE_API_URL}/users`)
+        if (response.data.user.is_staff && response.data.user.is_active) {
+          this.user = response.data.user;
+          this.token = response.data.token;
+          this.auth_status = true;
 
-        response.data.users.forEach(obj => {
-          if(obj.email===email&&obj.password===password) {
-            console.log('\nAuthentication Log')
-            this.user=obj.name;
-            auth_status=true
-            console.log(this.user)
-            localStorage.setItem("user", JSON.stringify(obj.name));
-            return auth_status;
-          }
-        });
-       
-
-        
-
-       // redirect to previous url or default to home page
-       if(!auth_status) return auth_status
-
-       router.push(this.returnUrl || '/');
-
+          router.push(this.returnUrl || "/");
+          return this.auth_status;
+        } else {
+          FetchResponse.error = "Sorry! Could not login 😔";
+          return FetchError;
+        }
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
+
+        switch (error.response.status) {
+          case 500:
+            FetchResponse.error = "Oops! Something is wrong on our side.";
+            console.log(FetchResponse)
+            return FetchResponse;
+
+          case 404:
+            FetchResponse.error = "Invalid credentials!";
+            return FetchResponse;
+
+          default:
+            FetchResponse.error = "Sorry. Could not login 😔";
+            return FetchResponse;
+        }
       }
     },
 
