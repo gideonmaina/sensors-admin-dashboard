@@ -8,8 +8,8 @@ let FetchResponse = {
 
 export const useAuthStore = defineStore("users", {
   state: () => ({
-    user: localStorage.getItem("user"!='undefined')?JSON.parse(localStorage.getItem("user")):null,
-    token: localStorage.getItem("user"!='undefined')?JSON.parse(localStorage.getItem("user")):null,
+    user: localStorage.getItem("user")!='undefined'?JSON.parse(localStorage.getItem("user")):null,
+    token: localStorage.getItem("token")!='undefined'?localStorage.getItem("token"):null,
     returnURL: null,
     auth_status: false,
   }),
