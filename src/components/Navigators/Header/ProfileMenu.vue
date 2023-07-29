@@ -13,8 +13,8 @@
       <ul class="list-none" >
         <li>Profile</li>
         <li>Settings</li>
-        <li>Logout</li>
       </ul>
+      <button class="mt-2 mb-2">Logout</button>
     </div>
   </div>
 </template>
@@ -35,12 +35,48 @@ display: inline-block;
   position: absolute;
   z-index: 2;
   display: none;
-  padding: 4px 8px;
-  background-color: rgb(0, 229, 160);
+  padding: 4px 10px;
+  /* background-color: rgb(0, 229, 160); */
+  background-color: white;
+  color:black;
   left:-45%;
+  margin-top:2px;
+  border-radius:4px;
+  box-shadow: 6px 12px 15px -3px rgba(0,0,0,0.1);
 }
 
 .profile-container:hover .profile-menu {
   display: block;
 }
+ul{
+  margin-top:3px;
+  padding-left: 0;
+}
+
+ul li{
+  margin-bottom:2px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.profile-menu::after{
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+button{
+  outline:1px solid #00e5a0;
+  padding:1px 4px;
+  border-radius:2px;
+}
+button:hover{
+  background-color:#00e5a0 ;
+  color:white;
+}
+
 </style>
