@@ -10,7 +10,7 @@
     </div>
 
     <div class="profile-menu">
-      <ul>
+      <ul class="list-none" >
         <li>Profile</li>
         <li>Settings</li>
         <li>Logout</li>
@@ -19,13 +19,12 @@
   </div>
 </template>
 
-<style >
+<style scoped>
 .profile-container {
   position: relative;
-  /* width: inherit;
-  height: inherit; */
   cursor: pointer;
   display:inline-block;
+  
 }
 
 .profile-image{
@@ -35,11 +34,12 @@ display: inline-block;
 .profile-menu {
   position: absolute;
   z-index: 2;
-  /* width: inherit;
-  height: inherit; */
   display: none;
-  background-color: green;
+  padding: 4px 8px;
+  background-color: rgb(0, 229, 160);
+  left:-45%;
 }
+
 .profile-container:hover .profile-menu {
   display: block;
 }

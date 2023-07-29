@@ -3,7 +3,7 @@ import ProfileMenu from './ProfileMenu.vue'
 </script>
 
 <template>
-  <v-app-bar class="pl-2" color="#00e5a0" prominent>
+  <v-app-bar class="pl-2 overflow-visible" color="#00e5a0" prominent>
     <RouterLink to="/">
       <v-avatar>
         <v-img
