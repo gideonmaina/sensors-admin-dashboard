@@ -8,9 +8,8 @@ let FetchResponse = {
 
 export const useAuthStore = defineStore("users", {
   state: () => ({
-    // user: JSON.parse(localStorage.getItem("user")),
-    user: null,
-    token: null,
+    user: localStorage.getItem("user")!='undefined'?JSON.parse(localStorage.getItem("user")):null,
+    token: localStorage.getItem("token")!='undefined'?localStorage.getItem("token"):null,
     returnURL: null,
     auth_status: false,
   }),
@@ -28,7 +27,9 @@ export const useAuthStore = defineStore("users", {
           this.user = response.data.user;
           this.token = response.data.token;
           this.auth_status = true;
-
+           
+          localStorage.setItem("user",JSON.stringify(response.data.user))
+          localStorage.setItem("token",response.data.token)
           router.push(this.returnUrl || "/");
           return this.auth_status;
         } else {
@@ -57,7 +58,7 @@ export const useAuthStore = defineStore("users", {
 
     logout() {
       this.user = null;
-      localStorage.removeItem("user");
+      localStorage.clear();
       router.push("/account/login");
     },
   },
