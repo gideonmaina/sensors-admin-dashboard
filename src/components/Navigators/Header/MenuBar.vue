@@ -1,5 +1,5 @@
 <script setup>
-import ProfileMenu from './ProfileMenu.vue'
+import ProfileMenu from "./ProfileMenu.vue";
 </script>
 
 <template>
@@ -17,19 +17,21 @@ import ProfileMenu from './ProfileMenu.vue'
 
     <v-spacer></v-spacer>
     <div class="text-light-blue-lighten-5">
-      <v-btn
-        variant="text"
-        icon="mdi-gmail"
-        class="text-light-blue-lighten-5"
-      ></v-btn>
-      <v-btn variant="text" icon="mdi-bell"></v-btn>
-      <!-- <v-avatar>
-        <v-img
-          src="https://cdn.vuetifyjs.com/images/john.jpg"
-          alt="John"
-        ></v-img>
-      </v-avatar> -->
-      <ProfileMenu/>
+      <!-- Mail notification -->
+      <v-btn variant="text" stacked>
+        <v-badge content="3" color="error">
+          <v-icon>mdi-gmail</v-icon>
+        </v-badge>
+      </v-btn>
+
+      <!-- general notification -->
+      <v-btn variant="text" stacked>
+        <v-badge dot color="error">
+          <v-icon>mdi-bell</v-icon>
+        </v-badge>
+      </v-btn>
+
+      <ProfileMenu />
       <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
     </div>
   </v-app-bar>
