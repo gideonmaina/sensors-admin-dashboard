@@ -12,15 +12,17 @@ import MenuBar from "../components/Navigators/Header/MenuBar.vue";
       name="dashboard-menu"
       class="text-white"
     >
-      <v-list density="default">
+      <v-list density="default" class="flex-column">
         <v-list-item
           prepend-icon="mdi-view-dashboard-outline"
           title="Dashboard"
           value="dashboard"
           to="/"
           class="mt-8"
-        ></v-list-item>
-        <v-list-group>
+        >
+        </v-list-item>
+
+        <v-list>
           <v-list-item
             title="Active Nodes"
             value=""
@@ -31,7 +33,8 @@ import MenuBar from "../components/Navigators/Header/MenuBar.vue";
             value=""
             to="inactive-nodes"
           ></v-list-item>
-        </v-list-group>
+        </v-list>
+
         <v-divider />
         <v-list-item
           prepend-icon="mdi-map-search-outline"
