@@ -11,9 +11,13 @@ import MenuBar from "../components/Navigators/Header/MenuBar.vue";
       color="#111827"
       name="dashboard-menu"
       class="text-white"
+      
     >
-      <v-list density="default" class="flex-column">
-        <v-list-item
+      <v-list  density="default" class="flex-column" >
+      
+
+        <div class="dashboard-container">
+          <v-list-item
           prepend-icon="mdi-view-dashboard-outline"
           title="Dashboard"
           value="dashboard"
@@ -21,37 +25,40 @@ import MenuBar from "../components/Navigators/Header/MenuBar.vue";
           class="mt-8"
         >
         </v-list-item>
-
-        <v-list>
+        <div class="dashboard-items">
           <v-list-item
             title="Active Nodes"
-            value=""
+            value="activenodes"
             to="active-nodes"
+            
           ></v-list-item>
           <v-list-item
             title="Inactive Nodes"
-            value=""
+            value="inactivenodes"
             to="inactive-nodes"
+            
           ></v-list-item>
-        </v-list>
+         
+        </div>
+        </div>
 
         <v-divider />
         <v-list-item
           prepend-icon="mdi-map-search-outline"
           title="Sensors map"
-          value=""
+          value="sensorsmap"
           to="/map"
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-account-hard-hat"
           title="Field Work"
-          value=""
+          value="fieldwork"
           to="/map"
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-truck-delivery"
           title="Logistics Work"
-          value=""
+          value="logistics"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -65,3 +72,15 @@ import MenuBar from "../components/Navigators/Header/MenuBar.vue";
     </v-main>
   </v-app>
 </template>
+
+<style scoped>
+
+.dashboard-container{
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-items{
+  align-self:center;
+  }
+ 
+</style>
