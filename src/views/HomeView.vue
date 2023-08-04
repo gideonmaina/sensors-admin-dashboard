@@ -1,58 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import MenuBar from "../components/Navigators/Header/MenuBar.vue";
+import SideNav from "../components/Navigators/SideNav.vue";
 </script>
 
 <template>
   <v-app>
     <MenuBar />
     <!-- side navbar -->
-    <v-navigation-drawer
-      color="#111827"
-      name="dashboard-menu"
-      class="text-white"
-    >
-      <v-list density="default">
-        <v-list-item
-          prepend-icon="mdi-view-dashboard-outline"
-          title="Dashboard"
-          value="dashboard"
-          to="/"
-          class="mt-8"
-        ></v-list-item>
-        <v-list-group>
-          <v-list-item
-            title="Active Nodes"
-            value=""
-            to="active-nodes"
-          ></v-list-item>
-          <v-list-item
-            title="Inactive Nodes"
-            value=""
-            to="inactive-nodes"
-          ></v-list-item>
-        </v-list-group>
-        <v-divider />
-        <v-list-item
-          prepend-icon="mdi-map-search-outline"
-          title="Sensors map"
-          value=""
-          to="/map"
-        ></v-list-item>
-        <v-list-item
-          prepend-icon="mdi-account-hard-hat"
-          title="Field Work"
-          value=""
-          to="/map"
-        ></v-list-item>
-        <v-list-item
-          prepend-icon="mdi-truck-delivery"
-          title="Logistics Work"
-          value=""
-        ></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
+    <SideNav />
     <!-- /side-navbar -->
 
     <v-main class="flex flex-col my-2 bg-#f2f4f4">
