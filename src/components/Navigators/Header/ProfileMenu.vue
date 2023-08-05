@@ -3,12 +3,12 @@ import { useAuthStore } from "@/stores";
 import { onMounted } from "vue";
 
 const authStore = useAuthStore()
-onMounted(()=>{
-  const logout=document.getElementById("logout")
-  logout.addEventListener("click",evt=>{
-    authStore.logout()
-  })
-})
+// onMounted(()=>{
+//   const logout=document.getElementById("logout")
+//   logout.addEventListener("click",evt=>{
+//     authStore.logout()
+//   })
+// })
 </script>
 <template>
   <div class="profile-container">
@@ -26,7 +26,7 @@ onMounted(()=>{
         <li>Profile</li>
         <li>Settings</li>
       </ul>
-      <button class="mt-2 mb-2" id="logout">Logout</button>
+      <button class="mt-2 mb-2" id="logout" @click="authStore.logout()">Logout</button>
     </div>
   </div>
 </template>
